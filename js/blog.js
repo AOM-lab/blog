@@ -1,6 +1,6 @@
 /* =============================================
-   BLOG AOM-LAB - JavaScript v2.0
-   Interactividad del esquema y navegación
+   BLOG AOM-LAB - JavaScript v3.0
+   Tabs, búsqueda y toggle de ramas
    ============================================= */
 
 (function() {
@@ -10,43 +10,40 @@
   // INIT
   // =============================================
   function init() {
-    setupSchemaToggle();
+    setupCategoryTabs();
     setupBranchToggle();
+    setupSearch();
     setupSmoothScroll();
   }
 
   // =============================================
-  // TOGGLE TEORÍA / PORTAFOLIO
+  // CATEGORY TABS
   // =============================================
-  function setupSchemaToggle() {
-    const toggleBtns = document.querySelectorAll('.schema-toggle-btn');
-    const schemaTeoria = document.getElementById('schema-teoria');
-    const schemaPortafolio = document.getElementById('schema-portafolio');
+  function setupCategoryTabs() {
+    const tabs = document.querySelectorAll('.category-tab');
+    const panels = document.querySelectorAll('.schema-panel');
 
-    if (!toggleBtns.length) return;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.dataset.category;
 
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.schema;
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
 
-        // Update buttons
-        toggleBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Show/hide schemas
-        if (target === 'teoria') {
-          schemaTeoria.style.display = 'block';
-          schemaPortafolio.style.display = 'none';
-        } else {
-          schemaTeoria.style.display = 'none';
-          schemaPortafolio.style.display = 'block';
-        }
+        // Show corresponding panel
+        panels.forEach(panel => {
+          panel.classList.remove('active');
+          if (panel.id === `panel-${category}`) {
+            panel.classList.add('active');
+          }
+        });
       });
     });
   }
 
   // =============================================
-  // EXPAND/COLLAPSE BRANCHES
+  // BRANCH TOGGLE (expand/collapse)
   // =============================================
   function setupBranchToggle() {
     const branchHeaders = document.querySelectorAll('.branch-header');
@@ -54,33 +51,91 @@
     branchHeaders.forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
-        const icon = header.querySelector('i:first-child');
+        const arrow = header.querySelector('.branch-arrow');
         const isExpanded = header.dataset.expanded === 'true';
 
         if (isExpanded) {
           // Collapse
-          content.style.display = 'none';
+          content.hidden = true;
           header.dataset.expanded = 'false';
-          icon.classList.remove('fa-chevron-down');
-          icon.classList.add('fa-chevron-right');
+          arrow.classList.remove('fa-chevron-down');
+          arrow.classList.add('fa-chevron-right');
         } else {
           // Expand
-          content.style.display = 'block';
+          content.hidden = false;
           header.dataset.expanded = 'true';
-          icon.classList.remove('fa-chevron-right');
-          icon.classList.add('fa-chevron-down');
+          arrow.classList.remove('fa-chevron-right');
+          arrow.classList.add('fa-chevron-down');
         }
       });
     });
   }
 
   // =============================================
+  // SEARCH
+  // =============================================
+  function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+
+    let debounceTimer;
+
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const query = e.target.value.toLowerCase().trim();
+        filterArticles(query);
+      }, 300);
+    });
+  }
+
+  function filterArticles(query) {
+    const articles = document.querySelectorAll('.article-list li');
+    let visibleCount = 0;
+
+    articles.forEach(article => {
+      const text = article.textContent.toLowerCase();
+      const match = !query || text.includes(query);
+      
+      article.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    // Update search hint
+    const hint = document.querySelector('.search-hint');
+    if (hint) {
+      if (query) {
+        hint.textContent = `${visibleCount} resultados`;
+      } else {
+        hint.textContent = '119 artículos disponibles';
+      }
+    }
+
+    // Auto-expand branches with matches when searching
+    if (query) {
+      document.querySelectorAll('.tree-branch').forEach(branch => {
+        const hasVisibleArticles = branch.querySelectorAll('.article-list li[style=""]').length > 0 ||
+                                   branch.querySelectorAll('.article-list li:not([style])').length > 0;
+        
+        const header = branch.querySelector('.branch-header');
+        const content = branch.querySelector('.branch-content');
+        const arrow = header.querySelector('.branch-arrow');
+
+        if (hasVisibleArticles && header.dataset.expanded === 'false') {
+          content.hidden = false;
+          header.dataset.expanded = 'true';
+          arrow.classList.remove('fa-chevron-right');
+          arrow.classList.add('fa-chevron-down');
+        }
+      });
+    }
+  }
+
+  // =============================================
   // SMOOTH SCROLL
   // =============================================
   function setupSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
         if (href === '#') return;
@@ -88,60 +143,13 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const headerOffset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+          const offset = 80;
+          const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: position, behavior: 'smooth' });
         }
       });
     });
   }
-
-  // =============================================
-  // CATEGORY BUTTONS (future: filter articles)
-  // =============================================
-  document.querySelectorAll('.category-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = btn.dataset.target;
-      
-      // Scroll to schema section
-      const schemaSection = document.getElementById('esquema');
-      if (schemaSection) {
-        schemaSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // Expand corresponding branch after scroll
-        setTimeout(() => {
-          // Map category to branch color
-          const categoryMap = {
-            'ciberseguridad': '#ef4444',
-            'bbdd': '#22c55e',
-            'sysadmin': '#3b82f6',
-            'redes': '#06b6d4',
-            'cloud': '#a855f7'
-          };
-          
-          const color = categoryMap[target];
-          if (color) {
-            const branches = document.querySelectorAll('.tree-branch');
-            branches.forEach(branch => {
-              const icon = branch.querySelector('.branch-icon');
-              if (icon && icon.style.getPropertyValue('--branch-color') === color) {
-                const header = branch.querySelector('.branch-header');
-                if (header && header.dataset.expanded === 'false') {
-                  header.click();
-                }
-              }
-            });
-          }
-        }, 600);
-      }
-    });
-  });
 
   // =============================================
   // RUN
