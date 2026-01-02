@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base de Conocimiento | AOM-Lab</title>
-  <meta name="description" content="Documentación técnica verificada sobre ciberseguridad, administración de sistemas, redes e infraestructura. Teoría, proyectos y casos reales.">
+  <meta name="description" content="Mi espacio para documentar lo que aprendo. Teoría, prácticas de laboratorio y proyectos de ciberseguridad e infraestructura.">
   <meta name="author" content="Alejandro Orcajada Meseguer">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Base de Conocimiento | AOM-Lab">
-  <meta property="og:description" content="Documentación técnica verificada. Teoría, proyectos y análisis de ciberseguridad e infraestructura.">
+  <meta property="og:description" content="Mi espacio para documentar lo que aprendo. Teoría, proyectos y análisis.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aom-lab.github.io/blog/">
   
@@ -23,27 +23,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <!-- Styles -->
+  <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/blog.css">
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="../" class="logo">
-        <span class="logo-icon"></span>
-        <span class="logo-text"><span class="accent">AOM</span>-Lab</span>
+  <!-- ========== TOPBAR / MEGA MENU ========== -->
+  <header class="topbar">
+    <div class="topwrap">
+      <a href="../" class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text"><span class="accent">AOM</span>-Lab</span>
       </a>
-      
-      <nav class="nav">
-        <a href="#sobre" class="nav-link">Sobre</a>
-        <a href="#contenido" class="nav-link">Contenido</a>
-        <a href="../" class="nav-link nav-back">
-          <i class="fas fa-arrow-left"></i>
-          Portfolio
-        </a>
-      </nav>
+      <nav id="nav"></nav>
     </div>
+    <div class="nav-backdrop"></div>
   </header>
 
   <!-- ========== HERO ========== -->
@@ -110,7 +104,7 @@
 
         <div class="about-card">
           <div class="about-icon">
-            <i class="fas fa-user-shield"></i>
+            <i class="fas fa-user"></i>
           </div>
           <h3 class="about-title">Autor</h3>
           <p class="about-text">
@@ -124,7 +118,7 @@
     </div>
   </section>
 
-  <!-- ========== FUENTES VERIFICADAS ========== -->
+  <!-- ========== FUENTES FIABLES ========== -->
   <section class="section section-sources">
     <div class="section-inner">
       
@@ -227,17 +221,17 @@
         <button class="category-tab" data-category="casos">
           <i class="fas fa-triangle-exclamation"></i>
           <span>Casos Concretos</span>
-          <span class="tab-count">+</span>
+          <span class="tab-count">4</span>
         </button>
         <button class="category-tab" data-category="laboratorio">
           <i class="fas fa-flask-vial"></i>
           <span>Laboratorio</span>
-          <span class="tab-count">+</span>
+          <span class="tab-count">3</span>
         </button>
         <button class="category-tab" data-category="proyectos">
           <i class="fas fa-rocket"></i>
           <span>Proyectos</span>
-          <span class="tab-count">+</span>
+          <span class="tab-count">3</span>
         </button>
       </div>
 
@@ -623,7 +617,7 @@
                 </div>
                 <ul class="article-list">
                   <li><a href="#">Sistema automatizado de backups con recuperación punto en tiempo</a></li>
-                  <li><a href="#">Plan de disaster recovery con RTO < 1 hora</a></li>
+                  <li><a href="#">Plan de disaster recovery con RTO menor a 1 hora</a></li>
                   <li><a href="#">Restauración ante desastre: simulacro documentado</a></li>
                 </ul>
               </div>
@@ -836,14 +830,6 @@
             <div class="case-tag">Config no testeada</div>
           </div>
 
-          <div class="case-card coming-soon">
-            <div class="case-header">
-              <span class="case-date">Próximamente</span>
-            </div>
-            <h3 class="case-title">Más casos en análisis</h3>
-            <p class="case-desc">Análisis detallados de incidentes reales con lecciones aprendidas y cómo prevenirlos.</p>
-          </div>
-
         </div>
       </div>
 
@@ -884,12 +870,6 @@
             </div>
           </div>
 
-          <div class="lab-card coming-soon">
-            <div class="lab-icon"><i class="fas fa-plus"></i></div>
-            <h3 class="lab-title">Más labs en desarrollo</h3>
-            <p class="lab-desc">Entornos de cloud, forense y redes en preparación.</p>
-          </div>
-
         </div>
       </div>
 
@@ -903,7 +883,7 @@
             <p class="project-desc">Script en Bash para auditoría automatizada de configuraciones de seguridad en Linux.</p>
             <div class="project-meta">
               <span class="project-lang">Bash</span>
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+              <a href="https://github.com/AOM-lab" class="project-link" target="_blank"><i class="fab fa-github"></i> Código</a>
             </div>
           </div>
 
@@ -913,7 +893,7 @@
             <p class="project-desc">Bot de Telegram para notificaciones de monitorización y eventos de seguridad.</p>
             <div class="project-meta">
               <span class="project-lang">Python</span>
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+              <a href="https://github.com/AOM-lab" class="project-link" target="_blank"><i class="fab fa-github"></i> Código</a>
             </div>
           </div>
 
@@ -923,14 +903,8 @@
             <p class="project-desc">Colección de dashboards personalizados para monitorización de infraestructura.</p>
             <div class="project-meta">
               <span class="project-lang">JSON</span>
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+              <a href="https://github.com/AOM-lab" class="project-link" target="_blank"><i class="fab fa-github"></i> Código</a>
             </div>
-          </div>
-
-          <div class="project-card coming-soon">
-            <div class="project-icon"><i class="fas fa-plus"></i></div>
-            <h3 class="project-title">Más proyectos</h3>
-            <p class="project-desc">Herramientas y scripts en desarrollo continuo.</p>
           </div>
 
         </div>
@@ -959,7 +933,7 @@
           <p class="recent-excerpt">Cómo funcionan los sistemas SIEM, arquitectura de componentes y reglas de correlación.</p>
           <div class="recent-meta">
             <span class="recent-category">Ciberseguridad</span>
-            <span class="recent-date">15 Ene 2025</span>
+            <span class="recent-date">02 Ene 2026</span>
           </div>
         </a>
 
@@ -969,7 +943,7 @@
           <p class="recent-excerpt">Implementación completa de un sistema SIEM usando Elasticsearch, Logstash y Kibana.</p>
           <div class="recent-meta">
             <span class="recent-category">Ciberseguridad</span>
-            <span class="recent-date">12 Ene 2025</span>
+            <span class="recent-date">28 Dic 2025</span>
           </div>
         </a>
 
@@ -979,7 +953,7 @@
           <p class="recent-excerpt">Configuraciones de seguridad, permisos, SELinux y bastionado de servicios.</p>
           <div class="recent-meta">
             <span class="recent-category">Ciberseguridad</span>
-            <span class="recent-date">10 Ene 2025</span>
+            <span class="recent-date">20 Dic 2025</span>
           </div>
         </a>
 
@@ -993,16 +967,19 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="logo-text"><span class="accent">AOM</span>-Lab</span>
-        <span class="footer-copy">© 2025 Alejandro Orcajada Meseguer</span>
+        <span class="footer-copy">© 2026 Alejandro Orcajada Meseguer</span>
       </div>
       <div class="footer-links">
         <a href="../">Portfolio</a>
         <a href="https://github.com/AOM-lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/alejandro-orcajada-meseguer" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="js/nav-data.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/blog.js"></script>
 </body>
 </html>
