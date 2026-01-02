@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Técnico | AOM-Lab</title>
+  <meta name="description" content="Blog técnico sobre ciberseguridad, administración de sistemas, redes e infraestructura. Teoría, proyectos y casos reales.">
+  <meta name="author" content="Alejandro Orcajada Meseguer">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="blog-header">
+    <div class="blog-header-inner">
+      
+      <!-- Logo -->
+      <a href="../" class="blog-logo">
+        <span class="blog-logo-dot"></span>
+        <span class="blog-logo-text"><span class="accent">AOM</span>-Lab</span>
+      </a>
+      
+      <!-- Nav -->
+      <nav class="blog-nav">
+        <a href="../" class="blog-nav-link">
+          <i class="fas fa-arrow-left"></i>
+          Volver al Portfolio
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="blog-hero">
+    <div class="blog-hero-inner">
+      
+      <div class="blog-hero-badge">
+        <i class="fas fa-terminal"></i>
+        <span>~/blog</span>
+      </div>
+      
+      <h1 class="blog-hero-title">Blog Técnico</h1>
+      
+      <p class="blog-hero-desc">
+        Documentación técnica, proyectos y análisis. Desde los fundamentos teóricos 
+        hasta casos reales y experimentos en laboratorio.
+      </p>
+      
+      <!-- Stats -->
+      <div class="blog-hero-stats">
+        <div class="blog-stat">
+          <span class="blog-stat-value" id="stat-total">0</span>
+          <span class="blog-stat-label">Artículos</span>
+        </div>
+        <div class="blog-stat-sep"></div>
+        <div class="blog-stat">
+          <span class="blog-stat-value">5</span>
+          <span class="blog-stat-label">Categorías</span>
+        </div>
+        <div class="blog-stat-sep"></div>
+        <div class="blog-stat">
+          <span class="blog-stat-value">2025</span>
+          <span class="blog-stat-label">Actualizado</span>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ========== CATEGORÍAS ========== -->
+  <section class="blog-categories">
+    <div class="blog-categories-inner">
+      
+      <!-- Teoría y Conceptos -->
+      <a href="#teoria" class="blog-category-card" data-category="teoria">
+        <div class="blog-category-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="blog-category-content">
+          <h2 class="blog-category-title">Teoría y Conceptos</h2>
+          <p class="blog-category-desc">
+            Fundamentos técnicos para entender el "por qué" de cada tecnología. 
+            Documentación estructurada y referencias verificadas.
+          </p>
+          <div class="blog-category-meta">
+            <span class="blog-category-count"><span id="count-teoria">0</span> artículos</span>
+            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Portafolio -->
+      <a href="#portafolio" class="blog-category-card" data-category="portafolio">
+        <div class="blog-category-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="blog-category-content">
+          <h2 class="blog-category-title">Portafolio</h2>
+          <p class="blog-category-desc">
+            Proyectos profesionales documentados. Implementaciones reales 
+            con análisis de decisiones técnicas y resultados.
+          </p>
+          <div class="blog-category-meta">
+            <span class="blog-category-count"><span id="count-portafolio">0</span> artículos</span>
+            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Laboratorio -->
+      <a href="#laboratorio" class="blog-category-card" data-category="laboratorio">
+        <div class="blog-category-icon">
+          <i class="fas fa-flask"></i>
+        </div>
+        <div class="blog-category-content">
+          <h2 class="blog-category-title">Laboratorio</h2>
+          <p class="blog-category-desc">
+            Experimentos y pruebas de concepto en entornos controlados. 
+            Testing de herramientas, configuraciones y ataques simulados.
+          </p>
+          <div class="blog-category-meta">
+            <span class="blog-category-count"><span id="count-laboratorio">0</span> artículos</span>
+            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Casos Reales -->
+      <a href="#casos" class="blog-category-card" data-category="casos">
+        <div class="blog-category-icon">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <div class="blog-category-content">
+          <h2 class="blog-category-title">Casos Reales</h2>
+          <p class="blog-category-desc">
+            Análisis de incidentes reales y brechas de seguridad conocidas. 
+            Lecciones aprendidas y cómo prevenirlos.
+          </p>
+          <div class="blog-category-meta">
+            <span class="blog-category-count"><span id="count-casos">0</span> artículos</span>
+            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Proyectos Personales -->
+      <a href="#proyectos" class="blog-category-card" data-category="proyectos">
+        <div class="blog-category-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="blog-category-content">
+          <h2 class="blog-category-title">Proyectos Personales</h2>
+          <p class="blog-category-desc">
+            Side projects, herramientas propias y experimentos fuera del ámbito 
+            profesional. Aprendizaje continuo.
+          </p>
+          <div class="blog-category-meta">
+            <span class="blog-category-count"><span id="count-proyectos">0</span> artículos</span>
+            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </section>
+
+  <!-- ========== ARTÍCULOS RECIENTES ========== -->
+  <section class="blog-recent">
+    <div class="blog-recent-inner">
+      
+      <div class="blog-section-header">
+        <h2 class="blog-section-title">
+          <i class="fas fa-clock"></i>
+          Últimos Artículos
+        </h2>
+        <a href="#todos" class="blog-section-link">
+          Ver todos <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <!-- Grid de artículos -->
+      <div class="blog-articles-grid" id="recent-articles">
+        <!-- Se llena con JavaScript -->
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ========== TODOS LOS ARTÍCULOS ========== -->
+  <section class="blog-all" id="todos">
+    <div class="blog-all-inner">
+      
+      <div class="blog-section-header">
+        <h2 class="blog-section-title">
+          <i class="fas fa-folder-open"></i>
+          Todos los Artículos
+        </h2>
+      </div>
+      
+      <!-- Filtros -->
+      <div class="blog-filters">
+        <button class="blog-filter-btn active" data-filter="all">
+          <span>Todos</span>
+        </button>
+        <button class="blog-filter-btn" data-filter="teoria">
+          <span>Teoría</span>
+        </button>
+        <button class="blog-filter-btn" data-filter="portafolio">
+          <span>Portafolio</span>
+        </button>
+        <button class="blog-filter-btn" data-filter="laboratorio">
+          <span>Laboratorio</span>
+        </button>
+        <button class="blog-filter-btn" data-filter="casos">
+          <span>Casos Reales</span>
+        </button>
+        <button class="blog-filter-btn" data-filter="proyectos">
+          <span>Proyectos</span>
+        </button>
+      </div>
+      
+      <!-- Buscador -->
+      <div class="blog-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="blog-search-input" placeholder="Buscar artículos...">
+      </div>
+      
+      <!-- Lista de artículos -->
+      <div class="blog-articles-list" id="all-articles">
+        <!-- Se llena con JavaScript -->
+      </div>
+      
+      <!-- Estado vacío -->
+      <div class="blog-empty" id="blog-empty">
+        <i class="fas fa-inbox"></i>
+        <p>No se encontraron artículos</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="blog-footer">
+    <div class="blog-footer-inner">
+      
+      <div class="blog-footer-brand">
+        <span class="blog-logo-text"><span class="accent">AOM</span>-Lab</span>
+        <span class="blog-footer-copy">© 2025 Alejandro Orcajada Meseguer</span>
+      </div>
+      
+      <div class="blog-footer-links">
+        <a href="../" class="blog-footer-link">Portfolio</a>
+        <a href="https://github.com/AOM-lab" target="_blank" class="blog-footer-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/" target="_blank" class="blog-footer-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/blog.js"></script>
+  
+</body>
+</html>
