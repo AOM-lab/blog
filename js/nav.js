@@ -1,6 +1,7 @@
 /* =========================================
-   NAV.JS v8.0 - Mega Menu Dos Columnas
+   NAV.JS v8.1 - Mega Menu Dos Columnas
    Diseño profesional Stripe/Vercel
+   CORREGIDO: Hover estable
    ========================================= */
 
 (function() {
@@ -64,7 +65,6 @@
       
       menu.sections.forEach(section => {
         section.items.forEach(item => {
-          // Añadir item principal
           searchIndex.push({
             label: item.label,
             desc: item.desc || '',
@@ -77,7 +77,6 @@
             type: 'subcategory'
           });
           
-          // Añadir subitems (artículos)
           if (item.subitems) {
             item.subitems.forEach(sub => {
               searchIndex.push({
@@ -115,7 +114,6 @@
       return labelMatch || keywordMatch || descMatch;
     });
     
-    // Ordenar por relevancia
     results.sort((a, b) => {
       const aLabel = terms.some(t => a.label.toLowerCase().includes(t)) ? 2 : 0;
       const bLabel = terms.some(t => b.label.toLowerCase().includes(t)) ? 2 : 0;
@@ -131,7 +129,6 @@
   function renderMegaMenu(menu) {
     const sections = menu.sections || [];
     
-    // Generar categorías (columna izquierda)
     let categoriesHTML = '';
     let panelsHTML = '';
     
@@ -155,7 +152,6 @@
         </div>
       `;
       
-      // Generar panel de detalle
       let panelContent = '';
       section.items.forEach(item => {
         const articleCount = item.subitems ? item.subitems.length : 0;
@@ -300,7 +296,6 @@
       </div>
     `;
 
-    // Añadir backdrop si no existe
     if (!document.querySelector('.nav-backdrop')) {
       const backdrop = document.createElement('div');
       backdrop.className = 'nav-backdrop';
@@ -312,62 +307,48 @@
   }
 
   // ═══════════════════════════════════════
-  // EVENTOS
+  // EVENTOS - VERSIÓN ESTABLE
   // ═══════════════════════════════════════
   function bindEvents() {
     const navItems = document.querySelectorAll('.nav-item');
     const backdrop = document.querySelector('.nav-backdrop');
     
-    // Hover en triggers para abrir menú
+    // Variable global para el timeout
+    let globalCloseTimeout = null;
+    
     navItems.forEach(item => {
       const trigger = item.querySelector('.nav-trigger');
       const megaMenu = item.querySelector('.mega-menu');
-      let closeTimeout;
       
-      // Bloquear propagación del scroll dentro del mega menu
-      if (megaMenu) {
-        megaMenu.addEventListener('wheel', (e) => {
-          const detail = megaMenu.querySelector('.mega-detail-content');
-          if (!detail) return;
-          
-          const isScrollingDown = e.deltaY > 0;
-          const isScrollingUp = e.deltaY < 0;
-          const isAtTop = detail.scrollTop === 0;
-          const isAtBottom = detail.scrollTop + detail.clientHeight >= detail.scrollHeight - 1;
-          
-          // Bloquear si llegamos al límite
-          if ((isScrollingDown && isAtBottom) || (isScrollingUp && isAtTop)) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        }, { passive: false });
-      }
-      
-      // Abrir con hover
-      item.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimeout);
+      // Función para abrir este menú
+      function openMenu() {
+        // Cancelar cualquier cierre pendiente
+        if (globalCloseTimeout) {
+          clearTimeout(globalCloseTimeout);
+          globalCloseTimeout = null;
+        }
         
-        // Cerrar otros
+        // Cerrar otros menús primero
         navItems.forEach(n => {
-          if (n !== item) {
+          if (n !== item && n.classList.contains('open')) {
             n.classList.remove('open');
             n.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
           }
         });
         
+        // Abrir este menú
         item.classList.add('open');
         trigger.setAttribute('aria-expanded', 'true');
         backdrop.classList.add('active');
         document.body.classList.add('menu-open');
-      });
+      }
       
-      // Cerrar con delay al salir
-      item.addEventListener('mouseleave', () => {
-        closeTimeout = setTimeout(() => {
+      // Función para cerrar menú con delay
+      function scheduleClose() {
+        globalCloseTimeout = setTimeout(() => {
           item.classList.remove('open');
           trigger.setAttribute('aria-expanded', 'false');
           
-          // Si no hay ningún menú abierto, ocultar backdrop
           const anyOpen = document.querySelector('.nav-item.open');
           if (!anyOpen) {
             backdrop.classList.remove('active');
@@ -384,24 +365,64 @@
             if (detailContent) detailContent.style.display = 'flex';
             if (resultsContainer) resultsContainer.classList.remove('active');
           }
-        }, 150);
+        }, 300); // Delay más largo para estabilidad
+      }
+      
+      // Bloquear scroll dentro del mega menu
+      if (megaMenu) {
+        megaMenu.addEventListener('wheel', (e) => {
+          const detail = megaMenu.querySelector('.mega-detail-content');
+          if (!detail) return;
+          
+          const isScrollingDown = e.deltaY > 0;
+          const isScrollingUp = e.deltaY < 0;
+          const isAtTop = detail.scrollTop === 0;
+          const isAtBottom = detail.scrollTop + detail.clientHeight >= detail.scrollHeight - 1;
+          
+          if ((isScrollingDown && isAtBottom) || (isScrollingUp && isAtTop)) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }, { passive: false });
+        
+        // Mantener abierto mientras el mouse está en el mega menu
+        megaMenu.addEventListener('mouseenter', () => {
+          if (globalCloseTimeout) {
+            clearTimeout(globalCloseTimeout);
+            globalCloseTimeout = null;
+          }
+        });
+        
+        megaMenu.addEventListener('mouseleave', () => {
+          scheduleClose();
+        });
+      }
+      
+      // Hover en el trigger
+      trigger.addEventListener('mouseenter', () => {
+        openMenu();
       });
       
-      // Click también funciona (para accesibilidad)
+      // Salir del trigger
+      trigger.addEventListener('mouseleave', (e) => {
+        // No cerrar si vamos hacia el mega menu
+        const relatedTarget = e.relatedTarget;
+        if (megaMenu && megaMenu.contains(relatedTarget)) {
+          return;
+        }
+        scheduleClose();
+      });
+      
+      // Click en trigger (para móviles y accesibilidad)
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        const isOpen = item.classList.contains('open');
-        
-        if (!isOpen) {
-          item.classList.add('open');
-          trigger.setAttribute('aria-expanded', 'true');
-          backdrop.classList.add('active');
-          document.body.classList.add('menu-open');
-        } else {
+        if (item.classList.contains('open')) {
           item.classList.remove('open');
           trigger.setAttribute('aria-expanded', 'false');
           backdrop.classList.remove('active');
           document.body.classList.remove('menu-open');
+        } else {
+          openMenu();
         }
       });
     });
@@ -420,16 +441,13 @@
         const idx = cat.dataset.category;
         const parent = cat.closest('.mega-content');
         
-        // Activar categoría
         parent.querySelectorAll('.mega-category').forEach(c => c.classList.remove('active'));
         cat.classList.add('active');
         
-        // Mostrar panel
         parent.querySelectorAll('.mega-panel').forEach(p => p.classList.remove('active'));
         parent.querySelector(`.mega-panel[data-panel="${idx}"]`)?.classList.add('active');
       });
       
-      // También con teclado
       cat.addEventListener('focus', () => cat.dispatchEvent(new Event('mouseenter')));
     });
     
@@ -459,12 +477,11 @@
       });
     });
     
-    // Hide on scroll - SOLO si no hay menú abierto
+    // Hide on scroll
     let lastScroll = 0;
     const topbar = document.querySelector('.topbar');
     
     window.addEventListener('scroll', () => {
-      // Si hay un menú abierto, no hacer nada
       if (document.body.classList.contains('menu-open')) {
         return;
       }
@@ -487,7 +504,6 @@
       item.classList.remove('open');
       item.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
       
-      // Reset búsqueda
       const input = item.querySelector('.mega-search-input');
       const megaDetail = item.querySelector('.mega-detail');
       if (input) input.value = '';
