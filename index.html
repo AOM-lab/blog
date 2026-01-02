@@ -7,8 +7,11 @@
   <meta name="description" content="Blog técnico sobre ciberseguridad, administración de sistemas, redes e infraestructura. Teoría, proyectos y casos reales.">
   <meta name="author" content="Alejandro Orcajada Meseguer">
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog Técnico | AOM-Lab">
+  <meta property="og:description" content="Documentación técnica, proyectos y análisis de ciberseguridad e infraestructura.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aom-lab.github.io/blog/">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,259 +28,807 @@
 <body>
 
   <!-- ========== HEADER ========== -->
-  <header class="blog-header">
-    <div class="blog-header-inner">
-      
-      <!-- Logo -->
-      <a href="../" class="blog-logo">
-        <span class="blog-logo-dot"></span>
-        <span class="blog-logo-text"><span class="accent">AOM</span>-Lab</span>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../" class="logo">
+        <span class="logo-icon"></span>
+        <span class="logo-text"><span class="accent">AOM</span>-Lab</span>
       </a>
       
-      <!-- Nav -->
-      <nav class="blog-nav">
-        <a href="../" class="blog-nav-link">
+      <nav class="nav">
+        <a href="#contenido" class="nav-link">Contenido</a>
+        <a href="#esquema" class="nav-link">Esquema</a>
+        <a href="../" class="nav-link nav-link-back">
           <i class="fas fa-arrow-left"></i>
-          Volver al Portfolio
+          Portfolio
         </a>
       </nav>
-      
     </div>
   </header>
 
   <!-- ========== HERO ========== -->
-  <section class="blog-hero">
-    <div class="blog-hero-inner">
-      
-      <div class="blog-hero-badge">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
         <i class="fas fa-terminal"></i>
-        <span>~/blog</span>
+        ~/blog
       </div>
       
-      <h1 class="blog-hero-title">Blog Técnico</h1>
+      <h1 class="hero-title">Base de Conocimiento</h1>
       
-      <p class="blog-hero-desc">
-        Documentación técnica, proyectos y análisis. Desde los fundamentos teóricos 
-        hasta casos reales y experimentos en laboratorio.
+      <p class="hero-desc">
+        Documentación técnica estructurada. Teoría fundamentada, proyectos reales 
+        y laboratorios prácticos sobre ciberseguridad e infraestructura.
       </p>
       
-      <!-- Stats -->
-      <div class="blog-hero-stats">
-        <div class="blog-stat">
-          <span class="blog-stat-value" id="stat-total">0</span>
-          <span class="blog-stat-label">Artículos</span>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">71</span>
+          <span class="stat-label">Teoría</span>
         </div>
-        <div class="blog-stat-sep"></div>
-        <div class="blog-stat">
-          <span class="blog-stat-value">5</span>
-          <span class="blog-stat-label">Categorías</span>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">48</span>
+          <span class="stat-label">Portafolio</span>
         </div>
-        <div class="blog-stat-sep"></div>
-        <div class="blog-stat">
-          <span class="blog-stat-value">2025</span>
-          <span class="blog-stat-label">Actualizado</span>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">119</span>
+          <span class="stat-label">Total</span>
         </div>
       </div>
-      
-    </div>
-  </section>
 
-  <!-- ========== CATEGORÍAS ========== -->
-  <section class="blog-categories">
-    <div class="blog-categories-inner">
-      
-      <!-- Teoría y Conceptos -->
-      <a href="#teoria" class="blog-category-card" data-category="teoria">
-        <div class="blog-category-icon">
-          <i class="fas fa-book"></i>
-        </div>
-        <div class="blog-category-content">
-          <h2 class="blog-category-title">Teoría y Conceptos</h2>
-          <p class="blog-category-desc">
-            Fundamentos técnicos para entender el "por qué" de cada tecnología. 
-            Documentación estructurada y referencias verificadas.
-          </p>
-          <div class="blog-category-meta">
-            <span class="blog-category-count"><span id="count-teoria">0</span> artículos</span>
-            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </a>
-      
-      <!-- Portafolio -->
-      <a href="#portafolio" class="blog-category-card" data-category="portafolio">
-        <div class="blog-category-icon">
-          <i class="fas fa-briefcase"></i>
-        </div>
-        <div class="blog-category-content">
-          <h2 class="blog-category-title">Portafolio</h2>
-          <p class="blog-category-desc">
-            Proyectos profesionales documentados. Implementaciones reales 
-            con análisis de decisiones técnicas y resultados.
-          </p>
-          <div class="blog-category-meta">
-            <span class="blog-category-count"><span id="count-portafolio">0</span> artículos</span>
-            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </a>
-      
-      <!-- Laboratorio -->
-      <a href="#laboratorio" class="blog-category-card" data-category="laboratorio">
-        <div class="blog-category-icon">
-          <i class="fas fa-flask"></i>
-        </div>
-        <div class="blog-category-content">
-          <h2 class="blog-category-title">Laboratorio</h2>
-          <p class="blog-category-desc">
-            Experimentos y pruebas de concepto en entornos controlados. 
-            Testing de herramientas, configuraciones y ataques simulados.
-          </p>
-          <div class="blog-category-meta">
-            <span class="blog-category-count"><span id="count-laboratorio">0</span> artículos</span>
-            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </a>
-      
-      <!-- Casos Reales -->
-      <a href="#casos" class="blog-category-card" data-category="casos">
-        <div class="blog-category-icon">
-          <i class="fas fa-triangle-exclamation"></i>
-        </div>
-        <div class="blog-category-content">
-          <h2 class="blog-category-title">Casos Reales</h2>
-          <p class="blog-category-desc">
-            Análisis de incidentes reales y brechas de seguridad conocidas. 
-            Lecciones aprendidas y cómo prevenirlos.
-          </p>
-          <div class="blog-category-meta">
-            <span class="blog-category-count"><span id="count-casos">0</span> artículos</span>
-            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </a>
-      
-      <!-- Proyectos Personales -->
-      <a href="#proyectos" class="blog-category-card" data-category="proyectos">
-        <div class="blog-category-icon">
-          <i class="fas fa-rocket"></i>
-        </div>
-        <div class="blog-category-content">
-          <h2 class="blog-category-title">Proyectos Personales</h2>
-          <p class="blog-category-desc">
-            Side projects, herramientas propias y experimentos fuera del ámbito 
-            profesional. Aprendizaje continuo.
-          </p>
-          <div class="blog-category-meta">
-            <span class="blog-category-count"><span id="count-proyectos">0</span> artículos</span>
-            <span class="blog-category-arrow"><i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </a>
-      
-    </div>
-  </section>
-
-  <!-- ========== ARTÍCULOS RECIENTES ========== -->
-  <section class="blog-recent">
-    <div class="blog-recent-inner">
-      
-      <div class="blog-section-header">
-        <h2 class="blog-section-title">
-          <i class="fas fa-clock"></i>
-          Últimos Artículos
-        </h2>
-        <a href="#todos" class="blog-section-link">
-          Ver todos <i class="fas fa-arrow-right"></i>
+      <div class="hero-actions">
+        <a href="#contenido" class="btn btn-primary">
+          <i class="fas fa-folder-open"></i>
+          Explorar contenido
+        </a>
+        <a href="#esquema" class="btn btn-secondary">
+          <i class="fas fa-sitemap"></i>
+          Ver esquema completo
         </a>
       </div>
-      
-      <!-- Grid de artículos -->
-      <div class="blog-articles-grid" id="recent-articles">
-        <!-- Se llena con JavaScript -->
-      </div>
-      
     </div>
   </section>
 
-  <!-- ========== TODOS LOS ARTÍCULOS ========== -->
-  <section class="blog-all" id="todos">
-    <div class="blog-all-inner">
+  <!-- ========== CATEGORÍAS PRINCIPALES ========== -->
+  <section class="section" id="contenido">
+    <div class="section-inner">
       
-      <div class="blog-section-header">
-        <h2 class="blog-section-title">
-          <i class="fas fa-folder-open"></i>
-          Todos los Artículos
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-layer-group"></i>
+          Áreas de Conocimiento
         </h2>
+        <p class="section-subtitle">5 categorías técnicas con teoría fundamentada y proyectos prácticos</p>
       </div>
+
+      <div class="categories-grid">
+        
+        <!-- Ciberseguridad -->
+        <div class="category-card" data-category="ciberseguridad">
+          <div class="category-header">
+            <div class="category-icon" style="--cat-color: #ef4444;">
+              <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="category-badge">26 + 13</div>
+          </div>
+          <h3 class="category-title">Ciberseguridad</h3>
+          <p class="category-desc">Análisis forense, hardening, hacking ético, gestión de incidentes y defensa activa.</p>
+          <div class="category-tags">
+            <span class="tag">Forense</span>
+            <span class="tag">Blue Team</span>
+            <span class="tag">Red Team</span>
+            <span class="tag">SIEM</span>
+          </div>
+          <div class="category-footer">
+            <span class="category-count">39 artículos</span>
+            <button class="category-btn" data-target="ciberseguridad">
+              Explorar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bases de Datos -->
+        <div class="category-card" data-category="bbdd">
+          <div class="category-header">
+            <div class="category-icon" style="--cat-color: #22c55e;">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="category-badge">14 + 8</div>
+          </div>
+          <h3 class="category-title">Bases de Datos</h3>
+          <p class="category-desc">Fundamentos, SQL avanzado, NoSQL, alta disponibilidad, backup y disaster recovery.</p>
+          <div class="category-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">HA</span>
+          </div>
+          <div class="category-footer">
+            <span class="category-count">22 artículos</span>
+            <button class="category-btn" data-target="bbdd">
+              Explorar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Administración de Sistemas -->
+        <div class="category-card" data-category="sysadmin">
+          <div class="category-header">
+            <div class="category-icon" style="--cat-color: #3b82f6;">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="category-badge">10 + 9</div>
+          </div>
+          <h3 class="category-title">Administración de Sistemas</h3>
+          <p class="category-desc">Linux, Windows Server, Active Directory, scripting, automatización y monitorización.</p>
+          <div class="category-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">Zabbix</span>
+          </div>
+          <div class="category-footer">
+            <span class="category-count">19 artículos</span>
+            <button class="category-btn" data-target="sysadmin">
+              Explorar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Redes -->
+        <div class="category-card" data-category="redes">
+          <div class="category-header">
+            <div class="category-icon" style="--cat-color: #06b6d4;">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="category-badge">10 + 9</div>
+          </div>
+          <h3 class="category-title">Redes e Internet</h3>
+          <p class="category-desc">Fundamentos, seguridad perimetral, firewalls, VPN, alta disponibilidad y servicios de red.</p>
+          <div class="category-tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">pfSense</span>
+            <span class="tag">VPN</span>
+            <span class="tag">DMZ</span>
+          </div>
+          <div class="category-footer">
+            <span class="category-count">19 artículos</span>
+            <button class="category-btn" data-target="redes">
+              Explorar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="category-card" data-category="cloud">
+          <div class="category-header">
+            <div class="category-icon" style="--cat-color: #a855f7;">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <div class="category-badge">11 + 9</div>
+          </div>
+          <h3 class="category-title">Cloud y Virtualización</h3>
+          <p class="category-desc">Virtualización, contenedores, Docker, Kubernetes, AWS, Azure e infraestructura como código.</p>
+          <div class="category-tags">
+            <span class="tag">Proxmox</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Terraform</span>
+          </div>
+          <div class="category-footer">
+            <span class="category-count">20 artículos</span>
+            <button class="category-btn" data-target="cloud">
+              Explorar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ESQUEMA COMPLETO ========== -->
+  <section class="section section-dark" id="esquema">
+    <div class="section-inner">
       
-      <!-- Filtros -->
-      <div class="blog-filters">
-        <button class="blog-filter-btn active" data-filter="all">
-          <span>Todos</span>
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-sitemap"></i>
+          Esquema Completo
+        </h2>
+        <p class="section-subtitle">Estructura jerárquica de todo el contenido del blog</p>
+      </div>
+
+      <!-- Toggle Teoría / Portafolio -->
+      <div class="schema-toggle">
+        <button class="schema-toggle-btn active" data-schema="teoria">
+          <i class="fas fa-book"></i>
+          Teoría y Conceptos
+          <span class="badge">71</span>
         </button>
-        <button class="blog-filter-btn" data-filter="teoria">
-          <span>Teoría</span>
-        </button>
-        <button class="blog-filter-btn" data-filter="portafolio">
-          <span>Portafolio</span>
-        </button>
-        <button class="blog-filter-btn" data-filter="laboratorio">
-          <span>Laboratorio</span>
-        </button>
-        <button class="blog-filter-btn" data-filter="casos">
-          <span>Casos Reales</span>
-        </button>
-        <button class="blog-filter-btn" data-filter="proyectos">
-          <span>Proyectos</span>
+        <button class="schema-toggle-btn" data-schema="portafolio">
+          <i class="fas fa-briefcase"></i>
+          Portafolio
+          <span class="badge">48</span>
         </button>
       </div>
-      
-      <!-- Buscador -->
-      <div class="blog-search">
-        <i class="fas fa-search"></i>
-        <input type="text" id="blog-search-input" placeholder="Buscar artículos...">
+
+      <!-- Esquema Teoría -->
+      <div class="schema-container" id="schema-teoria">
+        <div class="schema-tree">
+          
+          <!-- CIBERSEGURIDAD -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="true">
+              <i class="fas fa-chevron-down"></i>
+              <span class="branch-icon" style="--branch-color: #ef4444;"><i class="fas fa-shield-halved"></i></span>
+              <span class="branch-title">CIBERSEGURIDAD</span>
+              <span class="branch-count">26</span>
+            </div>
+            <div class="branch-content">
+              
+              <!-- Análisis Forense -->
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Análisis Forense</span>
+                  <span class="sub-branch-count">6</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos del análisis forense y metodología</a></li>
+                  <li><a href="#">Análisis forense sobre dispositivos móviles</a></li>
+                  <li><a href="#">Análisis forense sobre dispositivos IoT</a></li>
+                  <li><a href="#">Análisis forense sobre equipos informáticos (PC)</a></li>
+                  <li><a href="#">Análisis de información recolectada y documentación</a></li>
+                  <li><a href="#">Herramientas especializadas y aplicación práctica</a></li>
+                </ul>
+              </div>
+
+              <!-- Hardening -->
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Hardening de Sistemas</span>
+                  <span class="sub-branch-count">5</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos del hardening y superficie de ataque</a></li>
+                  <li><a href="#">Hardening en sistemas Linux</a></li>
+                  <li><a href="#">Hardening en sistemas Windows Server</a></li>
+                  <li><a href="#">Guías CIS Benchmarks y cumplimiento</a></li>
+                  <li><a href="#">Auditoría y verificación de configuraciones</a></li>
+                </ul>
+              </div>
+
+              <!-- Hacking Ético -->
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Hacking Ético</span>
+                  <span class="sub-branch-count">6</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos del hacking ético y metodología</a></li>
+                  <li><a href="#">Reconocimiento y enumeración (OSINT)</a></li>
+                  <li><a href="#">Ataques especializados sobre servidores</a></li>
+                  <li><a href="#">Ataques especializados sobre aplicaciones web</a></li>
+                  <li><a href="#">Post-explotación y escalada de privilegios</a></li>
+                  <li><a href="#">Documentación y reporting de vulnerabilidades</a></li>
+                </ul>
+              </div>
+
+              <!-- Gestión de Incidentes -->
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Gestión de Incidentes</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Ciclo de vida de un incidente de seguridad</a></li>
+                  <li><a href="#">Detección y clasificación de incidentes</a></li>
+                  <li><a href="#">Respuesta y contención</a></li>
+                  <li><a href="#">Lecciones aprendidas y mejora continua</a></li>
+                </ul>
+              </div>
+
+              <!-- Blue Team -->
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Blue Team / Defensa Activa</span>
+                  <span class="sub-branch-count">5</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos de defensa y monitorización</a></li>
+                  <li><a href="#">SIEM: arquitectura y correlación de eventos</a></li>
+                  <li><a href="#">Análisis de logs y detección de anomalías</a></li>
+                  <li><a href="#">Threat Hunting y detección proactiva</a></li>
+                  <li><a href="#">Playbooks de respuesta automatizada</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- BASES DE DATOS -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #22c55e;"><i class="fas fa-database"></i></span>
+              <span class="branch-title">BASES DE DATOS</span>
+              <span class="branch-count">14</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Fundamentos de BBDD</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Componentes y arquitectura de una BBDD</a></li>
+                  <li><a href="#">Modelo relacional vs no relacional</a></li>
+                  <li><a href="#">Diseño y normalización (1FN, 2FN, 3FN)</a></li>
+                  <li><a href="#">Casos de uso y elección de tecnología</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">BBDD Relacionales</span>
+                  <span class="sub-branch-count">6</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Tipos, motores y funcionamiento interno</a></li>
+                  <li><a href="#">SQL avanzado: joins, subconsultas y vistas</a></li>
+                  <li><a href="#">PL/SQL: procedimientos, funciones y triggers</a></li>
+                  <li><a href="#">Automatización y estrategias de backup</a></li>
+                  <li><a href="#">Alta disponibilidad y replicación</a></li>
+                  <li><a href="#">Disaster recovery y resiliencia a fallos</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">BBDD No Relacionales</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Tipos, motores y funcionamiento interno</a></li>
+                  <li><a href="#">MongoDB: documentos y operaciones CRUD</a></li>
+                  <li><a href="#">Redis: caché y almacenamiento en memoria</a></li>
+                  <li><a href="#">Cuándo elegir NoSQL vs SQL</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ADMINISTRACIÓN DE SISTEMAS -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #3b82f6;"><i class="fas fa-server"></i></span>
+              <span class="branch-title">ADMINISTRACIÓN DE SISTEMAS</span>
+              <span class="branch-count">10</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Linux</span>
+                  <span class="sub-branch-count">5</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos y estructura del sistema</a></li>
+                  <li><a href="#">Gestión de usuarios, grupos y permisos</a></li>
+                  <li><a href="#">Administración de servicios (systemd)</a></li>
+                  <li><a href="#">Shell scripting y automatización (Bash)</a></li>
+                  <li><a href="#">Gestión de paquetes y actualizaciones</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Windows Server</span>
+                  <span class="sub-branch-count">5</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos y roles de servidor</a></li>
+                  <li><a href="#">Active Directory: usuarios, grupos y OUs</a></li>
+                  <li><a href="#">GPOs: creación y aplicación de políticas</a></li>
+                  <li><a href="#">PowerShell para administración</a></li>
+                  <li><a href="#">Servicios esenciales (DNS, DHCP, WSUS)</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- REDES -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #06b6d4;"><i class="fas fa-network-wired"></i></span>
+              <span class="branch-title">REDES E INTERNET</span>
+              <span class="branch-count">10</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Fundamentos</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Modelo OSI y TCP/IP</a></li>
+                  <li><a href="#">Direccionamiento IP y subnetting</a></li>
+                  <li><a href="#">Protocolos esenciales (DNS, DHCP, HTTP/S)</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Seguridad en Redes</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Firewalls: tipos y configuración</a></li>
+                  <li><a href="#">IDS/IPS: detección y prevención</a></li>
+                  <li><a href="#">Arquitectura DMZ y segmentación</a></li>
+                  <li><a href="#">VPN: Site-to-Site y acceso remoto</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Alta Disponibilidad</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Balanceo de carga</a></li>
+                  <li><a href="#">Redundancia y failover</a></li>
+                  <li><a href="#">Monitorización de red (Zabbix, Nagios)</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CLOUD -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #a855f7;"><i class="fas fa-cloud"></i></span>
+              <span class="branch-title">CLOUD Y VIRTUALIZACIÓN</span>
+              <span class="branch-count">11</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Virtualización</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos e hipervisores (Tipo 1 y 2)</a></li>
+                  <li><a href="#">Proxmox: instalación y gestión</a></li>
+                  <li><a href="#">VMware vSphere básico</a></li>
+                  <li><a href="#">Alta disponibilidad en entornos virtualizados</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Contenedores</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Docker: fundamentos y arquitectura</a></li>
+                  <li><a href="#">Imágenes, contenedores y volúmenes</a></li>
+                  <li><a href="#">Docker Compose: orquestación básica</a></li>
+                  <li><a href="#">Buenas prácticas y seguridad en contenedores</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Cloud</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Fundamentos de cloud computing</a></li>
+                  <li><a href="#">AWS: servicios esenciales (EC2, S3, RDS)</a></li>
+                  <li><a href="#">Azure: conceptos y servicios principales</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
-      
-      <!-- Lista de artículos -->
-      <div class="blog-articles-list" id="all-articles">
-        <!-- Se llena con JavaScript -->
+
+      <!-- Esquema Portafolio -->
+      <div class="schema-container" id="schema-portafolio" style="display: none;">
+        <div class="schema-tree">
+          
+          <!-- CIBERSEGURIDAD PORTAFOLIO -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="true">
+              <i class="fas fa-chevron-down"></i>
+              <span class="branch-icon" style="--branch-color: #ef4444;"><i class="fas fa-shield-halved"></i></span>
+              <span class="branch-title">CIBERSEGURIDAD</span>
+              <span class="branch-count">13</span>
+            </div>
+            <div class="branch-content">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Blue Team / Defensa</span>
+                  <span class="sub-branch-count">4</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Despliegue de SIEM con ELK Stack y detección de amenazas</a></li>
+                  <li><a href="#">Implementación de sistema de alertas y respuesta automatizada</a></li>
+                  <li><a href="#">Playbook de respuesta ante incidente de ransomware</a></li>
+                  <li><a href="#">Honeypot: despliegue y análisis de ataques capturados</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Análisis Forense</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Caso práctico: análisis forense de equipo comprometido</a></li>
+                  <li><a href="#">Extracción y análisis de memoria RAM con Volatility</a></li>
+                  <li><a href="#">Informe pericial: investigación de fuga de datos</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Hardening</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Bastionado completo de servidor Linux en producción</a></li>
+                  <li><a href="#">Hardening de Windows Server según CIS Benchmark</a></li>
+                  <li><a href="#">Automatización de auditorías de seguridad con scripts</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Red Team</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Auditoría de vulnerabilidades en entorno corporativo simulado</a></li>
+                  <li><a href="#">Explotación y escalada de privilegios en laboratorio</a></li>
+                  <li><a href="#">Test de intrusión web: SQL Injection y XSS en práctica</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- BBDD PORTAFOLIO -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #22c55e;"><i class="fas fa-database"></i></span>
+              <span class="branch-title">BASES DE DATOS</span>
+              <span class="branch-count">8</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Alta Disponibilidad</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Cluster MySQL con replicación Master-Slave</a></li>
+                  <li><a href="#">Cluster PostgreSQL con failover automático</a></li>
+                  <li><a href="#">Implementación de MySQL InnoDB Cluster</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Backup y Disaster Recovery</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Sistema automatizado de backups con recuperación punto en tiempo</a></li>
+                  <li><a href="#">Plan de disaster recovery con RTO < 1 hora</a></li>
+                  <li><a href="#">Restauración ante desastre: simulacro documentado</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Optimización</span>
+                  <span class="sub-branch-count">2</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Tuning de rendimiento en BBDD con +1M registros</a></li>
+                  <li><a href="#">Migración de BBDD sin downtime</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SYSADMIN PORTAFOLIO -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #3b82f6;"><i class="fas fa-server"></i></span>
+              <span class="branch-title">ADMINISTRACIÓN DE SISTEMAS</span>
+              <span class="branch-count">9</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Infraestructura</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Despliegue de Active Directory híbrido (Windows + Linux)</a></li>
+                  <li><a href="#">Automatización de despliegues con Ansible</a></li>
+                  <li><a href="#">Sistema centralizado de logs con rsyslog + ELK</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Monitorización</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Implementación de Zabbix para +50 hosts</a></li>
+                  <li><a href="#">Dashboard de métricas con Grafana</a></li>
+                  <li><a href="#">Sistema de alertas multicanal (email, Telegram, SMS)</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Automatización</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Scripts de administración en Bash y PowerShell</a></li>
+                  <li><a href="#">Automatización de tareas con cron y Task Scheduler</a></li>
+                  <li><a href="#">Gestión de configuración con Ansible</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- REDES PORTAFOLIO -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #06b6d4;"><i class="fas fa-network-wired"></i></span>
+              <span class="branch-title">REDES E INTERNET</span>
+              <span class="branch-count">9</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Arquitectura Segura</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Diseño e implementación de red con DMZ</a></li>
+                  <li><a href="#">Segmentación VLAN en entorno empresarial</a></li>
+                  <li><a href="#">Implementación de firewall pfSense en HA</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Conectividad</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">VPN Site-to-Site entre dos sedes</a></li>
+                  <li><a href="#">VPN de acceso remoto con WireGuard</a></li>
+                  <li><a href="#">Implementación de Zero Trust Network Access</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Servicios de Red</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Servidor DNS autoritativo con BIND</a></li>
+                  <li><a href="#">DHCP failover con ISC DHCP</a></li>
+                  <li><a href="#">Proxy inverso con Nginx y certificados SSL</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CLOUD PORTAFOLIO -->
+          <div class="tree-branch">
+            <div class="branch-header" data-expanded="false">
+              <i class="fas fa-chevron-right"></i>
+              <span class="branch-icon" style="--branch-color: #a855f7;"><i class="fas fa-cloud"></i></span>
+              <span class="branch-title">CLOUD Y VIRTUALIZACIÓN</span>
+              <span class="branch-count">9</span>
+            </div>
+            <div class="branch-content" style="display: none;">
+              
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Virtualización</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Cluster Proxmox con alta disponibilidad</a></li>
+                  <li><a href="#">Migración P2V de servidores físicos a virtuales</a></li>
+                  <li><a href="#">Sistema de backup automatizado con Proxmox Backup Server</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Contenedores</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Infraestructura completa con Docker Compose</a></li>
+                  <li><a href="#">CI/CD pipeline con Jenkins y Docker</a></li>
+                  <li><a href="#">Registro privado de imágenes Docker</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-branch">
+                <div class="sub-branch-header">
+                  <span class="sub-branch-title">Cloud</span>
+                  <span class="sub-branch-count">3</span>
+                </div>
+                <ul class="articles-list">
+                  <li><a href="#">Despliegue de infraestructura en AWS con Terraform</a></li>
+                  <li><a href="#">Arquitectura serverless con AWS Lambda</a></li>
+                  <li><a href="#">Migración de aplicación on-premise a AWS</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
-      
-      <!-- Estado vacío -->
-      <div class="blog-empty" id="blog-empty">
-        <i class="fas fa-inbox"></i>
-        <p>No se encontraron artículos</p>
-      </div>
-      
+
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="blog-footer">
-    <div class="blog-footer-inner">
-      
-      <div class="blog-footer-brand">
-        <span class="blog-logo-text"><span class="accent">AOM</span>-Lab</span>
-        <span class="blog-footer-copy">© 2025 Alejandro Orcajada Meseguer</span>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text"><span class="accent">AOM</span>-Lab</span>
+        <span class="footer-copy">© 2025 Alejandro Orcajada Meseguer</span>
       </div>
-      
-      <div class="blog-footer-links">
-        <a href="../" class="blog-footer-link">Portfolio</a>
-        <a href="https://github.com/AOM-lab" target="_blank" class="blog-footer-link">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://linkedin.com/in/" target="_blank" class="blog-footer-link">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+      <div class="footer-links">
+        <a href="../">Portfolio</a>
+        <a href="https://github.com/AOM-lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
-      
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/blog.js"></script>
-  
 </body>
 </html>
